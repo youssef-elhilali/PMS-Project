@@ -102,6 +102,17 @@ services:
       - mysql-net
       - kafka_-net
 
+  pms-frontend:
+    build:
+      context: ./product_management_system_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: pms-frontend
+    volumes:
+      - ./product_management_system_frontend:/usr/src/app/my-app
+      - /usr/src/app/my-app/node_modules
+
 networks:
   kafka_-net:
     driver: bridge

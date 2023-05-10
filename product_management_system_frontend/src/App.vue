@@ -7,7 +7,13 @@
 export default {
   name: 'App',
   components: {
-  }
+  },
+    mounted() {
+        let token = localStorage.getItem('jwtToken')
+        if (!token) {
+            this.$router.push({name: "Login"})
+        }
+    }
 }
 </script>
 
